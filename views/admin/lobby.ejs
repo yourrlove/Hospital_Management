@@ -1,0 +1,93 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <div class="container">
+          <div class="row">
+          <% if(success) { %>  
+            <% if(success == 1) { %>
+              <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>
+                  Success add patient!
+                </div>
+              </div>
+            <% } else { %>
+              <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                  Reception room FULL! OR None patients Left in lobby!
+                </div>
+              </div>
+            <% } %>  
+          </div> 
+          <% } %>
+
+
+        <div class="text-center">
+            <h2>Registion Form</h2>
+        </div>
+        <div class="row justify-content-center"> 
+          <div class="col-md-6">
+              <form id="myForm" action="/admin/lobby" method="post">
+                  <label for="name">Name</label>
+                  <input type="text" name="Name" id="name" class="form-control" required>
+
+                  <label for="birth">Birthday</label>
+                  <input type="date" name="Birthday" id="birth" value="" class="form-control" required>
+                  
+                  <label for="disease">Disease</label> 
+                  <select name="Disease" id="disease" class="form-select" required aria-label="select example">
+                    <option value="">Open this select menu</option>
+                    <% if (diseases.length > 0) { %>
+                      <% for (let dis of diseases) { %>
+                        <option value="<%= dis %>"><%= dis %></option>
+                      <% } %>  
+                    <% } %>  
+                  </select>
+
+                  <div class="row mb-3">
+                    <div class="col">
+                      <label for="Time">Time</label>
+                      <input type="time" class="form-control" id="Time" name="Time" value="" required>
+                    </div>
+                  </div>  
+
+                  <div class="text-center">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                  </div>
+
+              </form>
+          </div>
+        </div>
+
+        <div class="table-responsive-md my-3">
+          <table class="table table-bordered table-hover caption-top">
+            <caption>List of patients</caption>
+            <thead>
+              <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Name</th>
+                <th scope="col">Disease</th>
+                <th scope="col">Priority  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (patients.length > 0) { %>
+                  <% for(let [index, {name, disease, priority}] of patients.entries()) { %>
+                    <tr>
+                      <th scope="row"><%= index + 1 %></th>
+                      <td><%= name %></td>
+                      <td><%= disease %></td>
+                      <td><%= priority %></td>
+                    </tr>
+                  <% } %>
+              <% } %>   
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <a href="/admin/lobby?move=true" class="btn btn-success">Move</a>
+    </main>
+<% -include('../includes/end.ejs') %>

@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <div class="container pb-5">
+                <%- include('../includes/queue_patients.ejs') %>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                  <% if (patients.length > 0) { %>
+                    <div class="col-auto">
+                      <div class="card" style="width: 20rem;">
+                        <img src="https://thumbs.dreamstime.com/b/high-quality-dark-blue-healthcare-person-icon-high-quality-dark-blue-healthcare-person-icon-pictogram-icon-set-illustration-useful-192532981.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Name: <%= patients[0].name %></p>
+                          <p class="card-text">BirthDay: <%= patients[0].birth %></p>
+                          <p class="card-text">Disease: <%= patients[0].disease %></p>
+                        </div>
+                      </div>
+                  </div>
+                  <% } %>
+                  <div class="col-auto ms-5">
+                    <div class="card" style="width: 25rem;">
+                        <div style="width:100%; text-align:center">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                        </div>
+                        <div class="card-body text-center">
+                          <p class="card-text">Specialist: <%= room.specialist %></p>
+                          <p class="card-text">Doctor: <%= room.doctor %></p>
+                        </div>
+                    </div>
+                    <div class="d-grid pt-5">
+                      <a href="/admin/doctor_room/<%= room.id%>?move=true" class="btn btn-success">Done</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+        </main>
+        <%- include('../includes/end.ejs') %>

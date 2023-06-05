@@ -1,0 +1,17 @@
+[
+    {"disease": "Cảm xoàn",          "priority": 20, "specialist": "Tai mũi họng"},
+    {"disease": "Viêm amidan",       "priority": 19, "specialist": "Tai mũi họng"},
+    {"disease": "Covid 19",          "priority": 5,  "specialist": "Tai mũi họng"},
+    {"disease": "Bong gân",          "priority": 10, "specialist": "Chấn thương"},
+    {"disease": "Giãn dây chằng",    "priority": 12, "specialist": "Chấn thương"},
+    {"disease": "Gãy tay",           "priority": 2,  "specialist": "Chấn thương"},
+    {"disease": "Gãy chân",          "priority": 2,  "specialist": "Chấn thương"},
+    {"disease": "Chấn thương sọ não","priority": 1,  "specialist": "Chấn thương"},
+    {"disease": "Hở van tim",        "priority": 15, "specialist": "Tim mạch"},    
+    {"disease": "Đái tháo đường",    "priority": 17, "specialist": "Tim mạch"}, 
+    {"disease": "Đau tim nhẹ",       "priority": 5,  "specialist": "Tim mạch"},
+    {"disease": "Nhồi máu cơ tim",   "priority": 1,  "specialist": "Tim mạch"},
+    {"disease": "Đau mắt đỏ",        "priority": 15, "specialist": "Mắt"},
+    {"disease": "Đục thủy tinh thể", "priority": 6,  "specialist": "Mắt"},
+    {"disease": "Tăng nhã áp",       "priority": 3,  "specialist": "Mắt"}
+]
