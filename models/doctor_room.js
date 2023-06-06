@@ -4,6 +4,7 @@ const fs = require('fs');
 const p = path.resolve('data', 'hospital_data', 'doctor_rooms.json');
 
 module.exports = class Dotor_room {
+    
     static fetchAllDotorRooms () {
         return new Promise((resolve, reject) => {
             fs.readFile(p, (err, fileContent) => {
@@ -16,6 +17,7 @@ module.exports = class Dotor_room {
         });
     }
 
+    //move patient out of room after medical examination is done
     static donePatient (room_idx, all_rooms) {
         let new_patients = all_rooms[room_idx].patients;
         all_rooms[room_idx].cur_slot = (new_patients.shift())? all_rooms[room_idx].cur_slot - 1 : 0; 
@@ -24,6 +26,7 @@ module.exports = class Dotor_room {
         return new_patients;
     }
 
+    //move all patient from waiting queue to correlative dotor's room
     static movePatients (waiting_patients, rooms) {
         rooms.forEach(room => {
             let len = waiting_patients.length;
@@ -40,7 +43,7 @@ module.exports = class Dotor_room {
         return [waiting_patients, rooms];
     }
 
-    static inputData (doctor_rooms) {
+    static inputDoctorRooms (doctor_rooms) {
         return new Promise((resolve, reject) => {
             fs.writeFile(p, JSON.stringify(doctor_rooms), err=> {
                 if(err) console.log(err);

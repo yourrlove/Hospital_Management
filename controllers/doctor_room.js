@@ -9,6 +9,7 @@ exports.getDoctorRooms = async (req, res, next) => {
     const access_room_idx = all_rooms.findIndex(room => room.id == room_id);
     let access_room_patients = all_rooms[access_room_idx].patients;
 
+    //move patient out of room after medical examination is done
     if(move) {
         access_room_patients = Dotor_Room.donePatient(access_room_idx, all_rooms);
     }

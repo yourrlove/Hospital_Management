@@ -1,11 +1,10 @@
 <%- include('../includes/head.ejs') %>
     </head>
-
     <body>
         <%- include('../includes/navigation.ejs') %>
         <main>
             <div class="container pb-5">
-                <%- include('../includes/queue_patients.ejs') %>
+              <%- include('../includes/queue_patients.ejs') %>
             </div>
             <div class="container">
                 <div class="row justify-content-center">
@@ -19,7 +18,7 @@
                           <p class="card-text">Disease: <%= patients[0].disease %></p>
                         </div>
                       </div>
-                  </div>
+                    </div>
                   <% } %>
                   <div class="col-auto ms-5">
                     <div class="card" style="width: 25rem;">
@@ -33,10 +32,9 @@
                     </div>
                     <div class="d-grid pt-5">
                       <a href="/admin/doctor_room/<%= room.id%>?move=true" class="btn btn-success">Done</a>
-                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
+              </div>              
         </main>
         <%- include('../includes/end.ejs') %>

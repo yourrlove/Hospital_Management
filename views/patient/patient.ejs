@@ -14,7 +14,13 @@
                 </div>
               <% } %>
           </div>  
-
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/admin/reception" class="link-danger">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+              </svg>
+            </a>
+          </div>
             <div class="text-center">
                 <h2>Patient Details</h2>
             </div>
@@ -22,40 +28,40 @@
               <div class="col-md-6">
                 <form action="/patient" method="post">
                   <input type="hidden" value="<%= p.id %>" name="id">
-                    <!-- 2 column grid layout with text inputs for the first and last names -->
+
+                    <!-- Text input -->
                     <div class="row mb-4">
                       <div class="col">
                         <div class="form-outline">
-                          <input type="text" id="form6Example1" class="form-control" name="name" value="<%= p.name %>"/>
                           <label class="form-label" for="form6Example1">Name</label>  
+                          <input type="text" id="form6Example1" class="form-control" name="name" value="<%= p.name %>"/>
                         </div>
                       </div>
                     </div>
                   
                     <!-- Text input -->
                     <div class="form-outline mb-4">
-                      <input type="date" id="form6Example3" class="form-control" name="birth" value="<%= p.birth %>"/>
                       <label class="form-label" for="form6Example3">Birthday</label>
+                      <input type="date" id="form6Example3" class="form-control" name="birth" value="<%= p.birth %>"/>
                     </div>
                   
                     <!-- Text input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form6Example4" class="form-control" name="disease" value="<%= p.disease %>"/>
                       <label class="form-label" for="form6Example4">Disease</label>
+                      <input type="text" id="form6Example4" class="form-control" name="disease" value="<%= p.disease %>"/>
                     </div>
                   
-                    <!-- Number input -->
+                    <!-- Time Hospitalize input -->
                     <div class="form-outline mb-4">
-                      <input type="time" id="form6Example6" class="form-control" name="time"  value="<%= p.time %>">
                       <label class="form-label" for="form6Example6">Time Hospitalize</label>
+                      <input type="time" id="form6Example6" class="form-control" name="time"  value="<%= p.time %>">
                     </div>
                   
-                    <!-- Message input -->
+                    <!-- Social Insurance input -->
                     <div class="form-outline mb-4">
-                      <textarea class="form-control" id="form6Example7" rows="4"></textarea>
                       <label class="form-label" for="form6Example7">Social Insurance</label>
+                      <textarea class="form-control" id="form6Example7" rows="4" name="SI"></textarea>
                     </div>
-
 
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4">Done</button>

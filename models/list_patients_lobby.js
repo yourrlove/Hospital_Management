@@ -6,6 +6,8 @@ const p = path.resolve('data', 'user_data', 'lobby_patients.json');
 
 
 module.exports = class List_Lobby {
+
+    // <--- Priority Queue --->
     static async Enqueue(newPatient) {
         try {
             let listPatients = await this.fectAllPatients();    
@@ -81,6 +83,7 @@ module.exports = class List_Lobby {
             i++;
         }
     }
+    // <--- * --->
 
     static fectAllPatients() {
         return new Promise((resolve, reject) => {
