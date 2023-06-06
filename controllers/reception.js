@@ -1,3 +1,4 @@
+const Disease = require('../models/diseases_data');
 const Dotor_Room = require('../models/doctor_room');
 const List_Reception = require('../models/list_patients_reception');
 
@@ -44,15 +45,27 @@ exports.getPatient = async (req, res, next) => {
 
 //  POST - Edit patient infor
 exports.postPatient = async (req, res, next) => {
+    const {
+        id: id,
+        name: name,
+        birth: birth,
+        disease: disease,
+        time: time,
+        SI: SI
+    } = req.body;
 
-    const updatePatient = req.body;
-    console.log(updatePatient);
     let patients = await List_Reception.fectAllPatients();
-    const patientIndex = patients.findIndex(p => p.id == updatePatient.id);
-    patients[patientIndex] = updatePatient;    
+    const patientIndex = patients.findIndex(p => p.id == id);
+    patients[patientIndex].id = id; 
+    patients[patientIndex].name = name;
+    patients[patientIndex].birth = birth;
+    patients[patientIndex].disease = disease;
+    patients[patientIndex].time = time;
+    patients[patientIndex].SI = SI;
+
     List_Reception.inputDataReception(patients);
     
-    res.redirect(`patient/${updatePatient.id}?edit=true`);
+    res.redirect(`patient/${id}?edit=true`);
 };
 
 
