@@ -22,7 +22,7 @@ module.exports = class Dotor_room {
         let new_patients = all_rooms[room_idx].patients;
         all_rooms[room_idx].cur_slot = (new_patients.shift())? all_rooms[room_idx].cur_slot - 1 : 0; 
         all_rooms[room_idx].patients = [...new_patients];
-        this.inputData(all_rooms);
+        this.inputDoctorRooms(all_rooms);
         return new_patients;
     }
 
