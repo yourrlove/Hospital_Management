@@ -4,9 +4,9 @@
       <% if(len > 0) { %>
         <!-- start_idx to modify the patient' queue appropriately in doctor's room OR in Reception -->
         <% for(let i = start_idx; i < len; i++) { %>
-          <div class="col">
-            <div class="card h-100" style="width: 10rem;">
-              <img src="https://thumbs.dreamstime.com/b/high-quality-dark-blue-healthcare-person-icon-high-quality-dark-blue-healthcare-person-icon-pictogram-icon-set-illustration-useful-192532981.jpg" class="card-img-top" alt="...">
+          <div class="col-auto">
+            <div class="card h-100" style="width: 13rem;">
+              <img src="https://thumbs.dreamstime.com/b/high-quality-dark-blue-healthcare-person-icon-high-quality-dark-blue-healthcare-person-icon-pictogram-icon-set-illustration-useful-192532981.jpg" class="card-img-top" alt="..." width="100" height="200">
               <div class="card-body">
                 <p class="card-text"><%= patients[i].name %></p>
               <% if (edit) { %>
@@ -19,11 +19,11 @@
       <% } %>  
     <% for(let i = max_slot + start_idx; i > len; i--) { %>
       <div class="col-auto">
-        <div class="card h-60 w-50 ">
-          <img src="https://www.vhv.rs/dpng/d/526-5266879_blank-person-icon-hd-png-download.png" class="card-img-top" alt="..." width="100" height="100">
+        <div class="card" style="width: 13rem;">
+          <img src="https://www.vhv.rs/dpng/d/526-5266879_blank-person-icon-hd-png-download.png" class="card-img-top" alt="...">
           <div class="card-body">
-          <p class="card-text">Empty</p>
-          </div>  
+            <p class="card-text">Empty</p>
+          </div>
         </div>
       </div>
     <% } %>  

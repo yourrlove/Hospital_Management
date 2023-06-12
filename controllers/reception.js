@@ -34,6 +34,7 @@ exports.getPatient = async (req, res, next) => {
     const edit = (req.query.edit ?? false);
     let patients = await List_Reception.fectAllPatients();
     const patient = patients.find(p => p.id == id);
+    patient.SI = (null || undefined) ?? patient.SI;
 
     res.render('patient/patient', {
         pageTitle: 'Patient Details',
