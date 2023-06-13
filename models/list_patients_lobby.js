@@ -10,7 +10,7 @@ module.exports = class List_Lobby {
     // <--- Priority Queue --->
     static async Enqueue(newPatient) {
         try {
-            let listPatients = await this.fectAllPatients();    
+            let listPatients = await this.fectAllPatients(false);    
             listPatients.push(newPatient);
             this.bubleUp(listPatients);
             await this.inputPatientLobby(listPatients);
@@ -39,7 +39,7 @@ module.exports = class List_Lobby {
 
     static async Dequeue(cb) {
         try {
-            let listPatients = await this.fectAllPatients();  
+            let listPatients = await this.fectAllPatients(false);  
             
             const patient_move = listPatients[0];
             const len = listPatients.length;
@@ -83,13 +83,30 @@ module.exports = class List_Lobby {
             i++;
         }
     }
+
+    static heapSort(listPatients) {
+        let newlist = [];
+        const len = listPatients.length;
+        for(let i = 0; i < len; i++) {
+            const temp = listPatients[0];
+            listPatients[0] = listPatients.pop();
+            this.sinkDown(listPatients);
+            newlist.push(temp);
+        }
+        return newlist;
+    }
+    
     // <--- * --->
 
-    static fectAllPatients() {
+    static fectAllPatients(flag) {
         return new Promise((resolve, reject) => {
             fs.readFile(p, (err, fileContent) => {
                 if(!err && fileContent.length > 0) {
-                    resolve(JSON.parse(fileContent));
+                    let listPatients = JSON.parse(fileContent);
+                    if(flag) {
+                        listPatients = this.heapSort(listPatients);
+                    }
+                    resolve(listPatients);
                 } else {
                     resolve([]);
                 }

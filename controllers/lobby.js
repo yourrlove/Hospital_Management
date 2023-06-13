@@ -9,7 +9,7 @@ exports.getLobby = async (req, res, next) => {
     if(req.query.move) {
         
         let [ListLobbyPatients, ListReceptionPatients] = await Promise.all([ 
-            List_Lobby.fectAllPatients(),
+            List_Lobby.fectAllPatients(false),
             List_Reception.fectAllPatients()
         ]);
 
@@ -35,7 +35,7 @@ exports.getLobby = async (req, res, next) => {
 
         const [listDieases, patients] = await Promise.all([
                 Disease.fectAllDisease(), 
-                List_Lobby.fectAllPatients()
+                List_Lobby.fectAllPatients(true)
             ]);    
         const ListDiseaseName = listDieases.map(dis => dis.disease);
 
