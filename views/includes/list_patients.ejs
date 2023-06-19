@@ -1,0 +1,38 @@
+<div class="container">
+    <!-- Table -->
+    <div class="container">
+        <div class="table-responsive-md my-3">
+            <table class="table table-bordered table-hover caption-top">
+                <caption>List of patients</caption>
+                <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Disease</th>
+                    <% if (admin) { %>
+                        <th scope="col">Priority</th>
+                    <% } %>    
+                </tr>
+                </thead>
+                <tbody>
+                <% if (patients.length > 0) { %>
+                    <% for(let [index, {name, disease, priority}] of patients.entries()) { %>
+                        <tr>
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= name %></td>
+                        <td><%= disease %></td>
+                        <% if (admin) { %>
+                            <td><%= priority %></td>
+                        <% } %>    
+                    <% } %>
+                <% } %>   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <% if (admin) { %>
+        <div class="d-grid gap-2 d-md-block">
+            <a href="/admin/edit_lobby?move=true" class="btn btn-success">Move</a>
+        </div>
+    <% } %>
+</div>

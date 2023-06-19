@@ -1,9 +1,9 @@
-const Disease = require('../models/diseases_data');
-const Dotor_Room = require('../models/doctor_room');
-const List_Reception = require('../models/list_patients_reception');
+const Disease = require('../../models/diseases_data');
+const Dotor_Room = require('../../models/doctor_room');
+const List_Reception = require('../../models/list_patients_reception');
 
 // GET - Recption 
-exports.getReception = async (req, res, next) => {
+exports.getEditReception = async (req, res, next) => {
     let [waiting_patients, rooms] = await Promise.all([
         List_Reception.fectAllPatients(),
         Dotor_Room.fetchAllDotorRooms()
@@ -16,19 +16,20 @@ exports.getReception = async (req, res, next) => {
         Dotor_Room.inputDoctorRooms(rooms);
     }
 
-    res.render('admin/reception', {
-        pageTitle: 'Reception',
-        path: '/admin/reception',
+    res.render('admin/edit_reception', {
+        pageTitle: 'Edit Reception',
+        path: '/admin/edit_reception',
         patients: waiting_patients,
         doctor_rooms: rooms,
         max_slot: 10,
         start_idx: 0,
-        edit: true 
+        edit: true,
+        admin: true 
     });
 };
 
 //  GET - Edit patient infor
-exports.getPatient = async (req, res, next) => {
+exports.getEditPatient = async (req, res, next) => {
     
     const id = req.params.patientID;
     const edit = (req.query.edit ?? false);
@@ -45,7 +46,7 @@ exports.getPatient = async (req, res, next) => {
 };
 
 //  POST - Edit patient infor
-exports.postPatient = async (req, res, next) => {
+exports.postEditPatient = async (req, res, next) => {
     const {
         id: id,
         name: name,

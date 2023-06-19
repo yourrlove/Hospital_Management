@@ -1,0 +1,15 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/reception.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <div class="container mb-5">
+          <div class="pt-5d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/admin/edit_reception?move=true" class="btn btn-success">Move</a>
+          </div>
+          <%- include('../includes/queue_patients.ejs') %>
+        </div>
+        <%- include('../includes/rooms.ejs') %>
+    </main>
+<% -include('../includes/end.ejs') %>

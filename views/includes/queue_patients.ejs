@@ -1,4 +1,3 @@
-
 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-5 m-auto">
     <% let len = patients.length %>
       <% if(len > 0) { %>
@@ -10,7 +9,7 @@
               <div class="card-body">
                 <p class="card-text"><%= patients[i].name %></p>
               <% if (edit) { %>
-                <a href="/patient/<%= patients[i].id %>" class="btn btn-primary">Edit</a>
+                <a href="/admin/patient/<%= patients[i].id %>" class="btn btn-primary">Edit</a>
               <% } %> 
               </div>
             </div>
